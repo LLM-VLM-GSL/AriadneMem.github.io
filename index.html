@@ -7,23 +7,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; }
-        .author-link { color: #007bff; text-decoration: none; font-weight: 500; }
-        .author-link:hover { text-decoration: underline; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background-color: #ffffff; color: #333; }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 4px solid #3b82f6; display: inline-block; padding-bottom: 4px; }
+        .content-card { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 1.5rem; border: 1px solid #f1f5f9; margin-bottom: 2.5rem; }
+        /* 关键修复：确保图片在大屏幕上清晰，并解决显示过小的问题 */
+        .img-display { width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; }
+        .author-link { color: #007bff; text-decoration: none; font-weight: 500; white-space: nowrap; }
+        pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; }
         .btn-custom { background-color: #24292f; color: white; border-radius: 25px; padding: 10px 24px; transition: 0.3s; font-weight: 500; display: inline-flex; align-items: center; }
         .btn-custom:hover { background-color: #000; transform: translateY(-2px); }
-        .section-title { font-size: 2.25rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 4px solid #3b82f6; display: inline-block; padding-bottom: 4px; }
-        .content-card { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 2rem; border: 1px solid #f1f5f9; margin-bottom: 3rem; }
-        .img-zoom { transition: transform 0.3s ease; border-radius: 12px; }
-        .img-zoom:hover { transform: scale(1.01); }
-        .highlight-text { color: #2563eb; font-weight: 600; }
-        pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; }
     </style>
 </head>
 <body class="antialiased">
 
     <header class="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight text-gray-900 leading-tight">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 text-gray-900 leading-tight">
             AriadneMem: Threading the Maze of <span class="text-blue-600">Lifelong Memory</span> for LLM Agents
         </h1>
         
@@ -32,72 +30,50 @@
             <span class="author-link">Xiwen Chen<sup>2*</sup></span>
             <span class="author-link">Zhipeng Wang<sup>3*</sup></span>
             <span class="author-link">Jingjing Wang<sup>4</sup></span>
-            <span class="author-link">Xuanzhao Dong<sup>1</sup></span>
-            <span class="author-link">Minzhou Huang<sup>5</sup></span>
-            <span class="author-link">Rui Cai<sup>6</sup></span>
-            <span class="author-link">Hejian Sang<sup>7</sup></span>
-            <span class="author-link">Hao Wang<sup>4</sup></span>
-            <span class="author-link">Peijie Qiu<sup>8</sup></span>
-            <span class="author-link">Yueyue Deng<sup>9</sup></span>
-            <span class="author-link">Prayag Tiwari<sup>10</sup></span>
-            <span class="author-link">Brendan Hogan Rappazzo<sup>2</sup></span>
             <span class="author-link">Yalin Wang<sup>1</sup></span>
         </div>
 
         <div class="text-gray-500 mb-10 text-sm md:text-base">
-            <sup>1</sup>Arizona State University, <sup>2</sup>Morgan Stanley, <sup>3</sup>Rice University, <sup>4</sup>Clemson University, <sup>5</sup>Northwestern, <br>
-            <sup>6</sup>UC Davis, <sup>7</sup>Iowa State, <sup>8</sup>WUSTL, <sup>9</sup>Columbia, <sup>10</sup>Halmstad
-            <p class="mt-3 font-bold text-gray-800">COLM 2026 Submission</p>
-            <p class="text-xs italic mt-1">* Equal Contribution</p>
+            <sup>1</sup>Arizona State University, <sup>2</sup>Morgan Stanley, <sup>3</sup>Rice University, <sup>4</sup>Clemson University <br>
+            <p class="mt-2 font-bold text-gray-800">COLM 2026 Submission</p>
+            <p class="text-xs italic">* Equal Contribution</p>
         </div>
 
         <div class="flex flex-wrap justify-center gap-4">
             <a href="#" class="btn-custom"><i class="fas fa-file-pdf mr-2"></i>Paper</a>
             <a href="https://github.com/LLM-VLM-GSL/AriadneMem.github.io" class="btn-custom"><i class="fab fa-github mr-2"></i>Code</a>
-            <a href="#" class="btn-custom"><i class="fas fa-desktop mr-2"></i>Demo</a>
         </div>
     </header>
 
     <main class="max-w-5xl mx-auto px-6">
         
-        <div class="content-card">
-            <img src="image/1.png" class="w-full img-zoom" alt="Efficiency Teaser">
-            <p class="mt-6 text-center text-gray-600 italic font-medium text-sm">
-                Figure 1: Efficiency-Performance Trade-off. AriadneMem achieves superior reasoning while reducing runtime by <span class="highlight-text">77.8%</span>.
-            </p>
-        </div>
+        <section class="mb-16">
+            <div class="content-card">
+                <img src="image/1.png" class="img-display" alt="Efficiency Teaser">
+                <p class="mt-4 text-center text-gray-500 italic text-sm">Figure 1: AriadneMem achieves superior reasoning while reducing runtime by 77.8%.</p>
+            </div>
+        </section>
 
-        <section class="mb-20 px-4 md:px-12 py-10 bg-blue-50 rounded-3xl border border-blue-100 shadow-inner">
+        <section class="mb-20 bg-blue-50 p-8 md:p-12 rounded-3xl border border-blue-100 shadow-inner">
             <h2 class="section-title">Abstract</h2>
             <p class="text-xl leading-relaxed text-gray-800 text-justify">
-                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. However, existing systems struggle with <b>disconnected evidence</b> and <b>state updates</b>. We propose <b>AriadneMem</b>, a structured memory system that addresses these failure modes via a decoupled two-phase pipeline. On LoCoMo experiments, AriadneMem improves <span class="highlight-text">Multi-Hop F1 by 15.2%</span> and Average F1 by 9.0% over strong baselines, using only <b>497</b> context tokens.
+                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. We propose <b>AriadneMem</b>, a structured memory system that addresses <b>disconnected evidence</b> and <b>state updates</b> via a decoupled two-phase pipeline.
             </p>
         </section>
 
         <section class="mb-20">
             <h2 class="section-title">Methodology</h2>
             <div class="content-card">
-                <img src="image/2.png" class="w-full img-zoom shadow-sm" alt="Framework">
-                <p class="mt-6 text-center text-gray-500 text-sm italic">Figure 2: Overview of the AriadneMem architecture: Offline Memory Construction & Online Structural Reasoning.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 mt-12">
-                <div class="p-8 border rounded-2xl bg-white shadow-sm border-l-8 border-l-blue-500">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Offline Construction</h3>
-                    <p class="text-gray-600">Uses <b>entropy-aware gating</b> to filter noise and <b>conflict-aware coarsening</b> to merge duplicates while preserving state transitions as temporal edges.</p>
-                </div>
-                <div class="p-8 border rounded-2xl bg-white shadow-sm border-l-8 border-l-green-500">
-                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Online Reasoning</h3>
-                    <p class="text-gray-600">Executes <b>algorithmic bridge discovery</b> (Steiner Tree approximation) to reconstruct missing logical paths followed by topology-aware synthesis.</p>
-                </div>
+                <img src="image/2.png" class="img-display" alt="AriadneMem Architecture">
+                <p class="mt-4 text-center text-gray-500 text-sm italic">Figure 2: Overview of the AriadneMem architecture: Offline Construction & Online Structural Reasoning.</p>
             </div>
         </section>
 
-        <section class="mb-20 text-center">
-            <h2 class="section-title">Reasoning Case Study</h2>
+        <section class="mb-20">
+            <h2 class="section-title">Case Study</h2>
             <div class="content-card">
-                <img src="image/3.png" class="w-full rounded-lg border shadow-sm" alt="Case Study">
-                <p class="mt-4 text-sm text-gray-500">AriadneMem discovers bridge nodes to connect scattered evidence for multi-hop queries.</p>
+                <img src="image/3.png" class="img-display border" alt="Qualitative Results">
+                <p class="mt-4 text-center text-gray-500 text-sm">AriadneMem discovers bridge nodes to connect scattered evidence for multi-hop queries.</p>
             </div>
         </section>
 
@@ -105,43 +81,41 @@
             <h2 class="section-title">Quantitative Results</h2>
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="content-card">
-                    <img src="image/4.png" class="w-full" alt="Experimental Results">
-                    <p class="text-xs text-center mt-4 font-bold text-gray-400 tracking-widest uppercase">Performance Metrics</p>
+                    <img src="image/4.png" class="img-display" alt="Performance Metrics">
+                    <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase">Performance Comparison</p>
                 </div>
                 <div class="content-card">
-                    <img src="image/5.png" class="w-full" alt="Efficiency Analysis">
-                    <p class="text-xs text-center mt-4 font-bold text-gray-400 tracking-widest uppercase">Efficiency Analysis</p>
+                    <img src="image/5.png" class="img-display" alt="Efficiency Analysis">
+                    <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase">Efficiency Analysis</p>
                 </div>
             </div>
         </section>
 
-        <section class="mb-24">
+        <section class="mb-20">
             <h2 class="section-title">Ablation Study</h2>
-            <div class="content-card max-w-3xl mx-auto">
-                <img src="image/6.png" class="w-full" alt="Ablation Study">
+            <div class="content-card">
+                <img src="image/6.png" class="img-display" alt="Ablation Study">
                 <p class="text-center mt-4 text-gray-500 text-sm">Evaluating the impact of each component within the AriadneMem framework.</p>
             </div>
         </section>
 
         <section class="mb-24">
-            <h2 class="section-title text-gray-800">BibTeX</h2>
+            <h2 class="section-title">BibTeX</h2>
             <div class="relative group">
                 <pre id="bibtex-code">
 @article{zhu2026ariadnemem,
   title={AriadneMem: Threading the Maze of Lifelong Memory for LLM Agents},
-  author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and Wang, Jingjing and others},
+  author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and others},
   journal={arXiv preprint arXiv:26xx.xxxxx},
   year={2026}
 }</pre>
-                <button onclick="copyBib()" class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded text-xs hover:bg-gray-600 transition">
-                    <i class="far fa-copy mr-1"></i> Copy
-                </button>
+                <button onclick="copyBib()" class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded text-xs hover:bg-gray-600 transition">Copy</button>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-50 border-t py-16 text-center">
-        <p class="text-gray-500 text-sm">© 2026 AriadneMem Project. Developed by the LLM-VLM-GSL Team.</p>
+    <footer class="bg-gray-50 border-t py-12 text-center text-gray-500 text-sm">
+        <p>© 2026 AriadneMem Project Team. All Rights Reserved.</p>
     </footer>
 
     <script>
