@@ -9,110 +9,132 @@
     <style>
         .author-link { color: #007bff; text-decoration: none; font-weight: 500; }
         .author-link:hover { text-decoration: underline; }
-        .btn-custom { background-color: #333; color: white; border-radius: 20px; padding: 8px 20px; transition: 0.3s; display: inline-flex; align-items: center; }
-        .btn-custom:hover { background-color: #555; }
-        .section-title { font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; border-bottom: 2px solid #f3f4f6; padding-bottom: 0.5rem; }
-        img { width: 100%; height: auto; border-radius: 8px; }
-        .img-container { background-color: #f9fafb; padding: 2rem; border-radius: 1rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .img-caption { margin-top: 1rem; color: #6b7280; font-style: italic; text-align: center; font-size: 0.875rem; }
+        .btn-custom { background-color: #333; color: white; border-radius: 20px; padding: 8px 24px; transition: 0.3s; display: inline-flex; align-items: center; font-weight: 500; }
+        .btn-custom:hover { background-color: #000; transform: translateY(-2px); }
+        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: #1f2937; border-left: 4px solid #3b82f6; padding-left: 1rem; }
+        .highlight-box { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border-left: 5px solid #3b82f6; }
+        .stat-card { text-align: center; padding: 1.5rem; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; }
+        .stat-val { font-size: 2.25rem; font-weight: 800; color: #2563eb; }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans leading-relaxed">
 
-    <header class="max-w-4xl mx-auto px-4 py-16 text-center">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-            AriadneMem: Threading the Maze of Lifelong Memory for LLM Agents
+    <header class="max-w-5xl mx-auto px-4 py-20 text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight text-gray-900">
+            AriadneMem: Threading the Maze of <span class="text-blue-600">Lifelong Memory</span> for LLM Agents
         </h1>
         
-        <div class="flex flex-wrap justify-center gap-4 text-xl mb-6">
-            <span class="author-link">Author 1</span>,
-            <span class="author-link">Author 2</span>,
-            <span class="author-link">Author 3</span>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg mb-8">
+            <span class="author-link">Wenhui Zhu<sup>1*</sup></span>
+            <span class="author-link">Xiwen Chen<sup>2*</sup></span>
+            <span class="author-link">Zhipeng Wang<sup>3*</sup></span>
+            <span class="author-link">Jingjing Wang<sup>4</sup></span>
+            <span class="author-link">Xuanzhao Dong<sup>1</sup></span>
+            <span class="author-link">Minzhou Huang<sup>5</sup></span>
+            <span class="author-link">Rui Cai<sup>6</sup></span>
+            <span class="author-link">Hejian Sang<sup>7</sup></span>
+            <span class="author-link">Hao Wang<sup>4</sup></span>
+            <span class="author-link">Peijie Qiu<sup>8</sup></span>
+            <span class="author-link">Yueyue Deng<sup>9</sup></span>
+            <span class="author-link">Prayag Tiwari<sup>10</sup></span>
+            <span class="author-link">Brendan Hogan Rappazzo<sup>2</sup></span>
+            <span class="author-link">Yalin Wang<sup>1</sup></span>
         </div>
 
-        <div class="text-gray-500 mb-10 italic">
-            Your Institution / Research Lab Name
+        <div class="text-gray-500 mb-10 text-sm">
+            <sup>1</sup>ASU, <sup>2</sup>Morgan Stanley, <sup>3</sup>Rice, <sup>4</sup>Clemson, <sup>5</sup>Northwestern, <sup>6</sup>UC Davis, <sup>7</sup>Iowa State, <sup>8</sup>WUSTL, <sup>9</sup>Columbia, <sup>10</sup>Halmstad
+            <br><span class="mt-2 block">* Equal Contribution</span>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-3">
-            <a href="#" class="btn-custom"><i class="fas fa-file-pdf mr-2"></i>Paper</a>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#" class="btn-custom"><i class="fas fa-file-pdf mr-2"></i>Paper (arXiv)</a>
             <a href="https://github.com/LLM-VLM-GSL/AriadneMem.github.io" class="btn-custom"><i class="fab fa-github mr-2"></i>Code</a>
-            <a href="#" class="btn-custom"><i class="fas fa-database mr-2"></i>Dataset</a>
-            <a href="#" class="btn-custom"><i class="fas fa-desktop mr-2"></i>Demo</a>
+            <a href="#" class="btn-custom"><i class="fas fa-database mr-2"></i>LoCoMo Benchmark</a>
         </div>
     </header>
 
     <main class="max-w-5xl mx-auto px-4">
         
-        <div class="img-container">
-            <img src="image/1.png" alt="AriadneMem Overview">
-            <p class="img-caption">Figure 1: Overview of the AriadneMem framework for lifelong memory management.</p>
+        <div class="grid md:grid-cols-2 gap-8 items-center mb-20">
+            <div>
+                <img src="image/1.png" class="shadow-2xl rounded-2xl border" alt="AriadneMem Teaser">
+            </div>
+            <div class="space-y-4">
+                <h3 class="text-2xl font-bold italic text-gray-700">"Threading the Maze..."</h3>
+                <p class="text-lg text-gray-600 italic">
+                    Inspired by the thread of Ariadne, our system provides a structural path for agents to navigate the complex maze of lifelong context.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-4">
+                    <div class="stat-card">
+                        <div class="stat-val">+15.2%</div>
+                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Multi-Hop F1</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-val">-77.8%</div>
+                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Runtime</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <section class="max-w-4xl mx-auto py-10">
-            <h2 class="section-title">Abstract</h2>
-            <p class="text-lg text-justify text-gray-700">
-                LLM agents often struggle with maintaining consistent performance over long-term interactions, getting lost in the "maze" of accumulated information. We propose <strong>AriadneMem</strong>, a novel memory architecture that implements a "threading" mechanism... (此处替换为你的论文摘要)
+        <section class="mb-20 highlight-box p-8 rounded-2xl">
+            <h2 class="section-title text-blue-800">Abstract</h2>
+            <p class="text-xl leading-relaxed text-gray-700">
+                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. However, existing systems struggle with <strong>disconnected evidence</strong> and <strong>state updates</strong>. We propose <strong>AriadneMem</strong>, a structured memory system that addresses these failure modes via a decoupled two-phase pipeline. By offloading reasoning to the graph layer, AriadneMem reduces total runtime by 77.8% using only 497 context tokens.
             </p>
         </section>
 
-        <section class="py-10">
-            <h2 class="section-title">Methodology: The Ariadne Framework</h2>
-            <div class="img-container">
-                <img src="image/framework.png" alt="Framework Architecture">
-                <p class="img-caption">Figure 2: The detailed architecture of AriadneMem showing the memory threading and retrieval process.</p>
+        <section class="mb-20">
+            <h2 class="section-title">AriadneMem Architecture</h2>
+            <p class="mb-8 text-gray-600">The pipeline is decoupled into two phases: (I) Offline Memory Construction and (II) Online Structural Reasoning.</p>
+            <div class="bg-gray-50 p-6 rounded-3xl border border-dashed border-gray-300">
+                <img src="image/framework.png" class="rounded-xl shadow-lg" alt="Framework">
             </div>
         </section>
 
-        <section class="py-10">
-            <h2 class="section-title">Qualitative Results: Case Study</h2>
-            <div class="img-container">
+        <section class="mb-20">
+            <h2 class="section-title">Reasoning Case Study</h2>
+            <div class="border-2 border-blue-100 rounded-2xl overflow-hidden shadow-sm">
                 <img src="image/case_study.png" alt="Case Study">
-                <p class="img-caption">Figure 3: A case study demonstrating how AriadneMem handles complex, long-context queries.</p>
+            </div>
+            <p class="mt-4 text-center text-gray-500 italic">AriadneMem reconstructs evidence chains via algorithmic bridge discovery.</p>
+        </section>
+
+        <section class="mb-20">
+            <h2 class="section-title">Experiments & Performance</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <img src="image/result.png" class="rounded-xl border shadow" alt="Main Results">
+                    <p class="text-sm text-center font-medium">Table 1: LoCoMo Benchmark Results</p>
+                </div>
+                <div class="space-y-4">
+                    <img src="image/efficient_experiment.png" class="rounded-xl border shadow" alt="Efficiency">
+                    <p class="text-sm text-center font-medium">Figure 2: Efficiency-Performance Trade-off</p>
+                </div>
+            </div>
+            <div class="mt-8 bg-gray-50 p-6 rounded-xl">
+                <img src="image/ablation_study.png" class="w-2/3 mx-auto" alt="Ablation">
+                <p class="text-sm text-center mt-4">Ablation study on memory density management.</p>
             </div>
         </section>
 
-        <section class="py-10">
-            <h2 class="section-title">Experimental Results</h2>
-            <div class="img-container">
-                <img src="image/result.png" alt="Main Results">
-                <p class="img-caption">Table 1: Comparison of AriadneMem against state-of-the-art RAG and memory-based agents.</p>
-            </div>
-        </section>
-
-        <section class="py-10">
-            <h2 class="section-title">Efficiency Analysis</h2>
-            <div class="img-container">
-                <img src="image/efficient_experiment.png" alt="Efficiency Experiment">
-                <p class="img-caption">Figure 4: Efficiency analysis showing memory overhead and retrieval speed across different time steps.</p>
-            </div>
-        </section>
-
-        <section class="py-10">
-            <h2 class="section-title">Ablation Study</h2>
-            <div class="img-container">
-                <img src="image/ablation_study.png" alt="Ablation Study">
-                <p class="img-caption">Figure 5: Ablation study showing the contribution of each component within the threading mechanism.</p>
-            </div>
-        </section>
-
-        <section class="max-w-4xl mx-auto py-12 mb-20">
+        <section class="mb-20">
             <h2 class="section-title">BibTeX</h2>
-            <div class="bg-gray-50 p-6 rounded-lg font-mono text-sm overflow-x-auto border">
-<pre>
-@article{ariadnemem2024,
+            <div class="bg-slate-900 text-slate-300 p-8 rounded-2xl font-mono text-sm overflow-x-auto relative">
+                <button class="absolute top-4 right-4 hover:text-white" onclick="navigator.clipboard.writeText(document.getElementById('bibtex').innerText)"><i class="far fa-copy"></i></button>
+                <pre id="bibtex">
+@inproceedings{zhu2026ariadnemem,
   title={AriadneMem: Threading the Maze of Lifelong Memory for LLM Agents},
-  author={Your Name and Collaborators},
-  journal={arXiv preprint arXiv:24xx.xxxxx},
-  year={2024}
-}
-</pre>
+  author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and Wang, Jingjing and others},
+  booktitle={Conference on Language Modeling (COLM)},
+  year={2026}
+}</pre>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-50 py-10 text-center text-gray-400 text-sm">
-        <p>© 2024 AriadneMem Team. Website template inspired by LLaVA.</p>
+    <footer class="py-12 bg-gray-900 text-gray-500 text-center text-sm">
+        <p>© 2026 AriadneMem Project. All rights reserved.</p>
     </footer>
 
 </body>
