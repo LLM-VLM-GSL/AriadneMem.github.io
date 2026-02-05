@@ -10,8 +10,17 @@
         body { font-family: 'Inter', -apple-system, sans-serif; background-color: #ffffff; color: #333; }
         .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 4px solid #3b82f6; display: inline-block; padding-bottom: 4px; }
         .content-card { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 1.5rem; border: 1px solid #f1f5f9; margin-bottom: 2.5rem; }
-        /* 关键修复：确保图片在大屏幕上清晰，并解决显示过小的问题 */
-        .img-display { width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; }
+        
+        /* 图片全宽显示 */
+        .img-full-width { width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; transition: transform 0.2s ease; }
+        .img-full-width:hover { transform: scale(1.01); }
+
+        /* 标题 Logo 样式 */
+        .project-logo { width: 80px; height: 80px; vertical-align: middle; margin-right: 15px; display: inline-block; border-radius: 15px; }
+        
+        /* 视频容器 */
+        .video-container { width: 100%; max-width: 900px; margin: 0 auto 3rem auto; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+
         .author-link { color: #007bff; text-decoration: none; font-weight: 500; white-space: nowrap; }
         pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; }
         .btn-custom { background-color: #24292f; color: white; border-radius: 25px; padding: 10px 24px; transition: 0.3s; font-weight: 500; display: inline-flex; align-items: center; }
@@ -20,28 +29,33 @@
 </head>
 <body class="antialiased">
 
-    <header class="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 text-gray-900 leading-tight">
-            AriadneMem: Threading the Maze of <span class="text-blue-600">Lifelong Memory</span> for LLM Agents
+    <header class="max-w-6xl mx-auto px-6 py-16 text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 text-gray-900 leading-tight flex items-center justify-center flex-wrap">
+            <img src="image/0.png" alt="Logo" class="project-logo">
+            <span>AriadneMem: Threading the Maze of <br><span class="text-blue-600">Lifelong Memory</span> for LLM Agents</span>
         </h1>
         
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg mb-8 max-w-5xl mx-auto">
-            <span class="author-link">Wenhui Zhu<sup>1*</sup></span>
-            <span class="author-link">Xiwen Chen<sup>2*</sup></span>
-            <span class="author-link">Zhipeng Wang<sup>3*</sup></span>
-            <span class="author-link">Jingjing Wang<sup>4</sup></span>
-            <span class="author-link">Yalin Wang<sup>1</sup></span>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg mb-8 max-w-5xl mx-auto author-link">
+            <span>Wenhui Zhu<sup>1*</sup></span><span>Xiwen Chen<sup>2*</sup></span><span>Zhipeng Wang<sup>3*</sup></span>
+            <span>Jingjing Wang<sup>4</sup></span><span>Yalin Wang<sup>1</sup></span>
         </div>
 
         <div class="text-gray-500 mb-10 text-sm md:text-base">
             <sup>1</sup>Arizona State University, <sup>2</sup>Morgan Stanley, <sup>3</sup>Rice University, <sup>4</sup>Clemson University <br>
-            <p class="mt-2 font-bold text-gray-800">COLM 2026 Submission</p>
-            <p class="text-xs italic">* Equal Contribution</p>
+            <p class="mt-2 text-xs italic">* Equal Contribution</p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
             <a href="#" class="btn-custom"><i class="fas fa-file-pdf mr-2"></i>Paper</a>
             <a href="https://github.com/LLM-VLM-GSL/AriadneMem.github.io" class="btn-custom"><i class="fab fa-github mr-2"></i>Code</a>
+        </div>
+
+        <div class="video-container">
+            <video class="w-full" controls autoplay muted loop playsinline>
+                <source src="image/123.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="py-3 bg-gray-50 text-gray-500 text-sm italic">Video Demo: Lifelong Memory Retrieval Process</p>
         </div>
     </header>
 
@@ -49,53 +63,49 @@
         
         <section class="mb-16">
             <div class="content-card">
-                <img src="image/1.png" class="img-display" alt="Efficiency Teaser">
-                <p class="mt-4 text-center text-gray-500 italic text-sm">Figure 1: AriadneMem achieves superior reasoning while reducing runtime by 77.8%.</p>
+                <img src="image/1.png" class="img-full-width" alt="Teaser">
             </div>
         </section>
 
-        <section class="mb-20 bg-blue-50 p-8 md:p-12 rounded-3xl border border-blue-100 shadow-inner">
+        <section class="mb-20 bg-slate-50 p-8 md:p-12 rounded-3xl border border-slate-100">
             <h2 class="section-title">Abstract</h2>
             <p class="text-xl leading-relaxed text-gray-800 text-justify">
-                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. We propose <b>AriadneMem</b>, a structured memory system that addresses <b>disconnected evidence</b> and <b>state updates</b> via a decoupled two-phase pipeline.
+                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. We propose <b>AriadneMem</b>, a structured memory system that addresses disconnected evidence and state updates via a decoupled two-phase pipeline.
             </p>
         </section>
 
         <section class="mb-20">
             <h2 class="section-title">Methodology</h2>
             <div class="content-card">
-                <img src="image/2.png" class="img-display" alt="AriadneMem Architecture">
-                <p class="mt-4 text-center text-gray-500 text-sm italic">Figure 2: Overview of the AriadneMem architecture: Offline Construction & Online Structural Reasoning.</p>
+                <img src="image/2.png" class="img-full-width" alt="Architecture">
             </div>
         </section>
 
         <section class="mb-20">
             <h2 class="section-title">Case Study</h2>
             <div class="content-card">
-                <img src="image/3.png" class="img-display border" alt="Qualitative Results">
-                <p class="mt-4 text-center text-gray-500 text-sm">AriadneMem discovers bridge nodes to connect scattered evidence for multi-hop queries.</p>
+                <img src="image/3.png" class="img-full-width" alt="Case Study">
             </div>
         </section>
 
         <section class="mb-20">
-            <h2 class="section-title">Quantitative Results</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="content-card">
-                    <img src="image/4.png" class="img-display" alt="Performance Metrics">
-                    <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase">Performance Comparison</p>
-                </div>
-                <div class="content-card">
-                    <img src="image/5.png" class="img-display" alt="Efficiency Analysis">
-                    <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase">Efficiency Analysis</p>
-                </div>
+            <h2 class="section-title">Experimental Results</h2>
+            
+            <div class="content-card">
+                <img src="image/4.png" class="img-full-width" alt="Performance Comparison">
+                <p class="text-center mt-4 text-xs font-bold text-gray-400 tracking-widest uppercase">Performance Comparison</p>
+            </div>
+
+            <div class="content-card">
+                <img src="image/5.png" class="img-full-width" alt="Efficiency Analysis">
+                <p class="text-center mt-4 text-xs font-bold text-gray-400 tracking-widest uppercase">Efficiency Analysis</p>
             </div>
         </section>
 
         <section class="mb-20">
             <h2 class="section-title">Ablation Study</h2>
             <div class="content-card">
-                <img src="image/6.png" class="img-display" alt="Ablation Study">
-                <p class="text-center mt-4 text-gray-500 text-sm">Evaluating the impact of each component within the AriadneMem framework.</p>
+                <img src="image/6.png" class="img-full-width" alt="Ablation">
             </div>
         </section>
 
@@ -106,7 +116,6 @@
 @article{zhu2026ariadnemem,
   title={AriadneMem: Threading the Maze of Lifelong Memory for LLM Agents},
   author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and others},
-  journal={arXiv preprint arXiv:26xx.xxxxx},
   year={2026}
 }</pre>
                 <button onclick="copyBib()" class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded text-xs hover:bg-gray-600 transition">Copy</button>
@@ -114,8 +123,8 @@
         </section>
     </main>
 
-    <footer class="bg-gray-50 border-t py-12 text-center text-gray-500 text-sm">
-        <p>© 2026 AriadneMem Project Team. All Rights Reserved.</p>
+    <footer class="py-12 text-center text-gray-400 text-sm">
+        <p>© 2026 AriadneMem Project Team</p>
     </footer>
 
     <script>
