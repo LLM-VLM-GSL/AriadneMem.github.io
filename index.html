@@ -11,15 +11,20 @@
         .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 4px solid #3b82f6; display: inline-block; padding-bottom: 4px; }
         .content-card { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 1.5rem; border: 1px solid #f1f5f9; margin-bottom: 2.5rem; }
         
-        /* 图片全宽展示，确保 4 和 5 足够清晰 */
         .img-full-width { width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; transition: transform 0.2s ease; }
         .img-full-width:hover { transform: scale(1.01); }
 
-        /* 显著放大的 Logo 样式 */
-        .project-logo-large { width: 180px; height: auto; margin: 20px auto; display: block; border-radius: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        /* 再次大幅度放大 Logo 尺寸 */
+        .project-logo-extra-large { 
+            width: 350px; /* 从 180px 增加到 350px */
+            height: auto; 
+            margin: 30px auto; 
+            display: block; 
+            border-radius: 25px; 
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12); 
+        }
         
-        /* 视频 Demo 样式 */
-        .video-container { width: 100%; max-width: 950px; margin: 2rem auto 4rem auto; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); border: 1px solid #f1f5f9; }
+        .video-container { width: 100%; max-width: 1000px; margin: 2rem auto 4rem auto; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); border: 1px solid #f1f5f9; }
 
         .author-link { color: #007bff; text-decoration: none; font-weight: 500; white-space: nowrap; }
         pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; }
@@ -34,7 +39,7 @@
             AriadneMem: Threading the Maze of <br><span class="text-blue-600">Lifelong Memory</span> for LLM Agents
         </h1>
         
-        <img src="image/0.png" alt="AriadneMem Logo" class="project-logo-large">
+        <img src="image/0.png" alt="AriadneMem Logo" class="project-logo-extra-large">
 
         <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg mb-6 max-w-5xl mx-auto author-link">
             <span>Wenhui Zhu<sup>1*</sup></span><span>Xiwen Chen<sup>2*</sup></span><span>Zhipeng Wang<sup>3*</sup></span>
@@ -93,12 +98,10 @@
 
         <section class="mb-20">
             <h2 class="section-title">Experimental Results</h2>
-            
             <div class="content-card">
                 <img src="image/4.png" class="img-full-width" alt="Performance Comparison Metrics">
                 <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Main Quantitative Performance</p>
             </div>
-
             <div class="content-card">
                 <img src="image/5.png" class="img-full-width" alt="Efficiency and Token Usage">
                 <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Efficiency & Token Usage Analysis</p>
