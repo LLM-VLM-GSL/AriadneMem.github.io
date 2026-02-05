@@ -7,24 +7,28 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .author-link { color: #007bff; text-decoration: none; font-weight: 500; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .author-link { color: #007bff; text-decoration: none; font-weight: 500; white-space: nowrap; }
         .author-link:hover { text-decoration: underline; }
-        .btn-custom { background-color: #333; color: white; border-radius: 20px; padding: 8px 24px; transition: 0.3s; display: inline-flex; align-items: center; font-weight: 500; }
-        .btn-custom:hover { background-color: #000; transform: translateY(-2px); }
-        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: #1f2937; border-left: 4px solid #3b82f6; padding-left: 1rem; }
-        .highlight-box { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border-left: 5px solid #3b82f6; }
-        .stat-card { text-align: center; padding: 1.5rem; border-radius: 12px; background: #f8fafc; border: 1px solid #e2e8f0; }
-        .stat-val { font-size: 2.25rem; font-weight: 800; color: #2563eb; }
+        .btn-custom { background-color: #333; color: white; border-radius: 20px; padding: 10px 24px; transition: 0.3s; display: inline-flex; align-items: center; font-weight: 500; }
+        .btn-custom:hover { background-color: #000; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 2rem; color: #1f2937; position: relative; display: inline-block; }
+        .section-title::after { content: ""; width: 50%; height: 4px; background: #3b82f6; position: absolute; bottom: -8px; left: 0; border-radius: 2px; }
+        .img-card { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 1.5rem; transition: 0.3s; border: 1px solid #f1f5f9; }
+        .img-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .abstract-box { background: #f8fafc; border-radius: 24px; border: 1px solid #e2e8f0; }
+        .bibtex-box { background: #1e293b; color: #cbd5e1; border-radius: 12px; padding: 2rem; font-family: 'Fira Code', monospace; font-size: 0.9rem; position: relative; }
+        .stat-badge { background: #eff6ff; color: #1d4ed8; padding: 0.5rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.875rem; border: 1px solid #dbeafe; }
     </style>
 </head>
-<body class="bg-white text-gray-800 font-sans leading-relaxed">
+<body class="bg-white text-gray-800">
 
-    <header class="max-w-5xl mx-auto px-4 py-20 text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tight text-gray-900">
+    <header class="max-w-6xl mx-auto px-6 py-20 text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 text-gray-900 leading-tight">
             AriadneMem: Threading the Maze of <span class="text-blue-600">Lifelong Memory</span> for LLM Agents
         </h1>
         
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg mb-8">
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg mb-6 max-w-4xl mx-auto">
             <span class="author-link">Wenhui Zhu<sup>1*</sup></span>
             <span class="author-link">Xiwen Chen<sup>2*</sup></span>
             <span class="author-link">Zhipeng Wang<sup>3*</sup></span>
@@ -41,101 +45,113 @@
             <span class="author-link">Yalin Wang<sup>1</sup></span>
         </div>
 
-        <div class="text-gray-500 mb-10 text-sm">
-            <sup>1</sup>ASU, <sup>2</sup>Morgan Stanley, <sup>3</sup>Rice, <sup>4</sup>Clemson, <sup>5</sup>Northwestern, <sup>6</sup>UC Davis, <sup>7</sup>Iowa State, <sup>8</sup>WUSTL, <sup>9</sup>Columbia, <sup>10</sup>Halmstad
-            <br><span class="mt-2 block">* Equal Contribution</span>
+        <div class="text-gray-500 mb-10 text-sm md:text-base space-y-1">
+            <p><sup>1</sup>Arizona State University, <sup>2</sup>Morgan Stanley, <sup>3</sup>Rice University, <sup>4</sup>Clemson University</p>
+            <p><sup>5</sup>Northwestern, <sup>6</sup>UC Davis, <sup>7</sup>Iowa State, <sup>8</sup>WUSTL, <sup>9</sup>Columbia, <sup>10</sup>Halmstad</p>
+            <p class="mt-4 font-semibold text-gray-600 underline text-sm tracking-wide">COLM 2026 Submission</p>
+            <p class="text-xs italic text-gray-400 mt-2">* Equal Contribution</p>
         </div>
 
         <div class="flex flex-wrap justify-center gap-4">
-            <a href="#" class="btn-custom"><i class="fas fa-file-pdf mr-2"></i>Paper (arXiv)</a>
+            <a href="#" class="btn-custom"><i class="fas fa-file-pdf mr-2"></i>Paper</a>
             <a href="https://github.com/LLM-VLM-GSL/AriadneMem.github.io" class="btn-custom"><i class="fab fa-github mr-2"></i>Code</a>
-            <a href="#" class="btn-custom"><i class="fas fa-database mr-2"></i>LoCoMo Benchmark</a>
+            <a href="#" class="btn-custom"><i class="fas fa-desktop mr-2"></i>Demo</a>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4">
+    <main class="max-w-5xl mx-auto px-6">
         
-        <div class="grid md:grid-cols-2 gap-8 items-center mb-20">
-            <div>
-                <img src="image/1.png" class="shadow-2xl rounded-2xl border" alt="AriadneMem Teaser">
-            </div>
-            <div class="space-y-4">
-                <h3 class="text-2xl font-bold italic text-gray-700">"Threading the Maze..."</h3>
-                <p class="text-lg text-gray-600 italic">
-                    Inspired by the thread of Ariadne, our system provides a structural path for agents to navigate the complex maze of lifelong context.
+        <section class="mb-20">
+            <div class="img-card">
+                <img src="./image/1.png" class="w-full rounded-lg" alt="Efficiency Teaser" onerror="this.src='https://via.placeholder.com/800x400?text=Check+Image+Path:+image/1.png'">
+                <p class="mt-4 text-center text-gray-600 italic font-medium text-sm">
+                    Figure 1: Efficiency-Performance Trade-off. AriadneMem achieves superior reasoning while reducing runtime by 77.8%.
                 </p>
-                <div class="grid grid-cols-2 gap-4 pt-4">
-                    <div class="stat-card">
-                        <div class="stat-val">+15.2%</div>
-                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Multi-Hop F1</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-val">-77.8%</div>
-                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Runtime</div>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <section class="mb-20 highlight-box p-8 rounded-2xl">
-            <h2 class="section-title text-blue-800">Abstract</h2>
-            <p class="text-xl leading-relaxed text-gray-700">
-                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. However, existing systems struggle with <strong>disconnected evidence</strong> and <strong>state updates</strong>. We propose <strong>AriadneMem</strong>, a structured memory system that addresses these failure modes via a decoupled two-phase pipeline. By offloading reasoning to the graph layer, AriadneMem reduces total runtime by 77.8% using only 497 context tokens.
+        <section class="mb-20 abstract-box p-8 md:p-12 shadow-inner">
+            <h2 class="section-title">Abstract</h2>
+            <p class="text-xl leading-relaxed text-gray-700 text-justify">
+                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. However, existing systems struggle with <b>disconnected evidence</b> and <b>state updates</b>. We propose <b>AriadneMem</b>, a structured memory system that addresses these failure modes via a decoupled two-phase pipeline. In the offline phase, we use entropy-aware gating and conflict-aware coarsening. In the online reasoning phase, we execute algorithmic bridge discovery to reconstruct missing logical paths. On LoCoMo experiments, AriadneMem improves <b>Multi-Hop F1 by 15.2%</b> while reducing runtime by <b>77.8%</b> using only <b>497</b> context tokens.
             </p>
         </section>
 
-        <section class="mb-20">
-            <h2 class="section-title">AriadneMem Architecture</h2>
-            <p class="mb-8 text-gray-600">The pipeline is decoupled into two phases: (I) Offline Memory Construction and (II) Online Structural Reasoning.</p>
-            <div class="bg-gray-50 p-6 rounded-3xl border border-dashed border-gray-300">
-                <img src="image/framework.png" class="rounded-xl shadow-lg" alt="Framework">
+        <section class="mb-24">
+            <h2 class="section-title">Methodology</h2>
+            <p class="mb-8 text-lg text-gray-600">Our framework transforms memory retrieval from a probabilistic guessing game into a deterministic structural traversal.</p>
+            <div class="img-card mb-8">
+                <img src="./image/framework.png" class="w-full rounded-lg" alt="Framework" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=Check+Image+Path:+image/framework.png'">
+                <p class="mt-4 text-center text-gray-500 text-sm italic">Figure 2: Overview of the AriadneMem architecture: Offline Construction & Online Structural Reasoning.</p>
             </div>
-        </section>
-
-        <section class="mb-20">
-            <h2 class="section-title">Reasoning Case Study</h2>
-            <div class="border-2 border-blue-100 rounded-2xl overflow-hidden shadow-sm">
-                <img src="image/case_study.png" alt="Case Study">
-            </div>
-            <p class="mt-4 text-center text-gray-500 italic">AriadneMem reconstructs evidence chains via algorithmic bridge discovery.</p>
-        </section>
-
-        <section class="mb-20">
-            <h2 class="section-title">Experiments & Performance</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <img src="image/result.png" class="rounded-xl border shadow" alt="Main Results">
-                    <p class="text-sm text-center font-medium">Table 1: LoCoMo Benchmark Results</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mt-12">
+                <div class="p-6 border rounded-2xl bg-white shadow-sm">
+                    <div class="stat-badge mb-4">Phase I: Offline</div>
+                    <h3 class="text-xl font-bold mb-2">Evolutionary Memory</h3>
+                    <p class="text-gray-600 text-sm">Entropy-aware gating filters noise while conflict-aware coarsening explicitly preserves state transitions as temporal links.</p>
                 </div>
-                <div class="space-y-4">
-                    <img src="image/efficient_experiment.png" class="rounded-xl border shadow" alt="Efficiency">
-                    <p class="text-sm text-center font-medium">Figure 2: Efficiency-Performance Trade-off</p>
+                <div class="p-6 border rounded-2xl bg-white shadow-sm">
+                    <div class="stat-badge mb-4">Phase II: Online</div>
+                    <h3 class="text-xl font-bold mb-2">Structural Reasoning</h3>
+                    <p class="text-gray-600 text-sm">Algorithmic bridge discovery (Steiner Tree approximation) recovers logical chains between scattered facts.</p>
                 </div>
             </div>
-            <div class="mt-8 bg-gray-50 p-6 rounded-xl">
-                <img src="image/ablation_study.png" class="w-2/3 mx-auto" alt="Ablation">
-                <p class="text-sm text-center mt-4">Ablation study on memory density management.</p>
+        </section>
+
+        <section class="mb-24">
+            <h2 class="section-title">Qualitative Results</h2>
+            <div class="img-card">
+                <img src="./image/case_study.png" class="w-full rounded-lg border" alt="Case Study" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=Check+Image+Path:+image/case_study.png'">
             </div>
         </section>
 
-        <section class="mb-20">
+        <section class="mb-24">
+            <h2 class="section-title">Experiments</h2>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="img-card">
+                    <img src="./image/result.png" class="w-full" alt="Main Results" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=Check+Image+Path:+image/result.png'">
+                    <p class="text-xs text-center mt-2 text-gray-400 uppercase">Main Experimental Comparison</p>
+                </div>
+                <div class="img-card">
+                    <img src="./image/efficient_experiment.png" class="w-full" alt="Efficiency" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=Check+Image+Path:+image/efficient_experiment.png'">
+                    <p class="text-xs text-center mt-2 text-gray-400 uppercase">Efficiency Analysis</p>
+                </div>
+            </div>
+            <div class="img-card max-w-3xl mx-auto">
+                <img src="./image/ablation_study.png" class="w-full" alt="Ablation" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=Check+Image+Path:+image/ablation_study.png'">
+                <p class="text-center mt-2 text-gray-500 text-sm italic">Ablation study on component contributions.</p>
+            </div>
+        </section>
+
+        <section class="mb-24">
             <h2 class="section-title">BibTeX</h2>
-            <div class="bg-slate-900 text-slate-300 p-8 rounded-2xl font-mono text-sm overflow-x-auto relative">
-                <button class="absolute top-4 right-4 hover:text-white" onclick="navigator.clipboard.writeText(document.getElementById('bibtex').innerText)"><i class="far fa-copy"></i></button>
-                <pre id="bibtex">
-@inproceedings{zhu2026ariadnemem,
+            <div class="bibtex-box mt-6">
+                <pre id="bibtex-text">
+@article{zhu2026ariadnemem,
   title={AriadneMem: Threading the Maze of Lifelong Memory for LLM Agents},
   author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and Wang, Jingjing and others},
-  booktitle={Conference on Language Modeling (COLM)},
+  journal={arXiv preprint arXiv:26xx.xxxxx},
   year={2026}
 }</pre>
+                <button onclick="copyBib()" class="absolute top-4 right-4 text-slate-500 hover:text-white transition">
+                    <i class="far fa-copy"></i> Copy
+                </button>
             </div>
         </section>
+
     </main>
 
-    <footer class="py-12 bg-gray-900 text-gray-500 text-center text-sm">
+    <footer class="bg-gray-900 py-12 text-center text-gray-500 text-sm">
         <p>© 2026 AriadneMem Project. All rights reserved.</p>
     </footer>
 
+    <script>
+        function copyBib() {
+            const text = document.getElementById('bibtex-text').innerText;
+            navigator.clipboard.writeText(text);
+            alert('BibTeX copied to clipboard!');
+        }
+    </script>
 </body>
 </html>
