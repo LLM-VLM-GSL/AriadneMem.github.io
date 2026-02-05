@@ -26,11 +26,14 @@
         
         .video-container { width: 100%; max-width: 1000px; margin: 2rem auto 4rem auto; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); border: 1px solid #f1f5f9; }
 
-        .author-box { font-weight: 600; color: #1a202c; }
+        .author-box { font-weight: 600; color: #1a202c; line-height: 1.4; }
         .author-box span { white-space: nowrap; }
         .affiliation-box { color: #718096; font-size: 0.95rem; line-height: 1.6; }
         .email-box { font-family: monospace; color: #4a5568; margin-top: 10px; font-size: 0.9rem; }
         
+        /* Abstract 特殊排版 */
+        .abstract-text { font-family: 'Georgia', serif; font-size: 1.15rem; line-height: 1.8; color: #2d3748; text-align: justify; }
+
         pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; }
         .btn-custom { background-color: #24292f; color: white; border-radius: 25px; padding: 12px 28px; transition: 0.3s; font-weight: 600; display: inline-flex; align-items: center; }
         .btn-custom:hover { background-color: #000; transform: translateY(-2px); }
@@ -46,20 +49,20 @@
         <img src="image/0.png" alt="AriadneMem Logo" class="project-logo-extra-large">
 
         <div class="author-box flex flex-wrap justify-center gap-x-5 gap-y-2 text-lg mb-6 max-w-5xl mx-auto">
-            <span>Wenhui Zhu<sup>1*</sup></span>
-            <span>Xiwen Chen<sup>2*</sup></span>
-            <span>Zhipeng Wang<sup>3*</sup></span>
-            <span>Jingjing Wang<sup>4</sup></span>
-            <span>Xuanzhao Dong<sup>1</sup></span>
-            <span>Minzhou Huang<sup>5</sup></span>
-            <span>Rui Cai<sup>6</sup></span>
-            <span>Hejian Sang<sup>7</sup></span>
-            <span>Hao Wang<sup>4</sup></span>
-            <span>Peijie Qiu<sup>8</sup></span>
-            <span>Yueyue Deng<sup>9</sup></span>
-            <span>Prayag Tiwari<sup>10</sup></span>
-            <span>Brendan Hogan Rappazzo<sup>2</sup></span>
-            <span>Yalin Wang<sup>1</sup></span>
+            <span><b>Wenhui Zhu</b><sup>1*</sup></span>
+            <span><b>Xiwen Chen</b><sup>2*</sup></span>
+            <span><b>Zhipeng Wang</b><sup>3*</sup></span>
+            <span><b>Jingjing Wang</b><sup>4</sup></span>
+            <span><b>Xuanzhao Dong</b><sup>1</sup></span>
+            <span><b>Minzhou Huang</b><sup>5</sup></span>
+            <span><b>Rui Cai</b><sup>6</sup></span>
+            <span><b>Hejian Sang</b><sup>7</sup></span>
+            <span><b>Hao Wang</b><sup>4</sup></span>
+            <span><b>Peijie Qiu</b><sup>8</sup></span>
+            <span><b>Yueyue Deng</b><sup>9</sup></span>
+            <span><b>Prayag Tiwari</b><sup>10</sup></span>
+            <span><b>Brendan Hogan Rappazzo</b><sup>2</sup></span>
+            <span><b>Yalin Wang</b><sup>1</sup></span>
         </div>
 
         <div class="affiliation-box max-w-5xl mx-auto mb-4">
@@ -96,17 +99,25 @@
             </div>
         </section>
 
-        <section class="mb-20 bg-blue-50/50 p-8 md:p-12 rounded-3xl border border-blue-100 shadow-sm">
+        <section class="mb-20 bg-slate-50 p-8 md:p-14 rounded-3xl border border-slate-200 shadow-inner">
             <h2 class="section-title">Abstract</h2>
-            <p class="text-xl leading-relaxed text-gray-800 text-justify">
-                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. We propose <b>AriadneMem</b>, a structured memory system that addresses disconnected evidence and state updates via a decoupled two-phase pipeline.
-            </p>
+            <div class="abstract-text">
+                Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. 
+                However, existing systems struggle with two persistent challenges in long-term dialogue: 
+                (i) <b>disconnected evidence</b>, where multi-hop answers require linking facts distributed across time, 
+                and (ii) <b>state updates</b>, where evolving information (e.g., schedule changes) creates conflicts with older static logs. 
+                We propose <b>AriadneMem</b>, a structured memory system that addresses these failure modes via a decoupled two-phase pipeline. 
+                In the <b>offline construction phase</b>, AriadneMem employs <i>entropy-aware gating</i> to filter noise and low-information message before LLM extraction and applies <i>conflict-aware coarsening</i> to merge static duplicates while preserving state transitions as temporal edges. 
+                In the <b>online reasoning phase</b>, rather than relying on expensive iterative planning, AriadneMem executes <i>algorithmic bridge discovery</i> to reconstruct missing logical paths between retrieved facts, followed by <i>single-call topology-aware synthesis</i>. 
+                On LoCoMo experiments with GPT-4o, AriadneMem improves <b>Multi-Hop F1 by 15.2%</b> and <b>Average F1 by 9.0%</b> over strong baselines. 
+                Crucially, by offloading reasoning to the graph layer, AriadneMem reduces <b>total runtime by 77.8%</b> using only <b>497</b> context tokens.
+            </div>
         </section>
 
         <section class="mb-20">
             <h2 class="section-title">Methodology</h2>
             <div class="content-card">
-                <img src="image/2.png" class="img-full-width" alt="Framework">
+                <img src="image/2.png" class="img-full-width" alt="Framework Architecture">
             </div>
         </section>
 
@@ -120,7 +131,7 @@
         <section class="mb-20">
             <h2 class="section-title">Experimental Results</h2>
             <div class="content-card">
-                <img src="image/4.png" class="img-full-width" alt="Performance Comparison">
+                <img src="image/4.png" class="img-full-width" alt="Main Results">
             </div>
             <div class="content-card">
                 <img src="image/5.png" class="img-full-width" alt="Efficiency Analysis">
@@ -130,7 +141,7 @@
         <section class="mb-20">
             <h2 class="section-title">Ablation Study</h2>
             <div class="content-card">
-                <img src="image/6.png" class="img-full-width" alt="Ablation Analysis">
+                <img src="image/6.png" class="img-full-width" alt="Ablation">
             </div>
         </section>
 
@@ -140,7 +151,7 @@
                 <pre id="bibtex-code">
 @article{zhu2026ariadnemem,
   title={AriadneMem: Threading the Maze of Lifelong Memory for LLM Agents},
-  author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and Wang, Jingjing and Dong, Xuanzhao and others},
+  author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and Wang, Jingjing and Dong, Xuanzhao and Huang, Minzhou and Cai, Rui and Sang, Hejian and Wang, Hao and Qiu, Peijie and Deng, Yueyue and Tiwari, Prayag and Rappazzo, Brendan Hogan and Wang, Yalin},
   year={2026}
 }</pre>
                 <button onclick="copyBib()" class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded text-xs hover:bg-gray-600 transition">Copy</button>
