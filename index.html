@@ -11,31 +11,32 @@
         .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 4px solid #3b82f6; display: inline-block; padding-bottom: 4px; }
         .content-card { background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 1.5rem; border: 1px solid #f1f5f9; margin-bottom: 2.5rem; }
         
-        /* 图片全宽显示 */
+        /* 图片全宽展示，确保 4 和 5 足够清晰 */
         .img-full-width { width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; transition: transform 0.2s ease; }
         .img-full-width:hover { transform: scale(1.01); }
 
-        /* 标题 Logo 样式 */
-        .project-logo { width: 80px; height: 80px; vertical-align: middle; margin-right: 15px; display: inline-block; border-radius: 15px; }
+        /* 显著放大的 Logo 样式 */
+        .project-logo-large { width: 180px; height: auto; margin: 20px auto; display: block; border-radius: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
         
-        /* 视频容器 */
-        .video-container { width: 100%; max-width: 900px; margin: 0 auto 3rem auto; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+        /* 视频 Demo 样式 */
+        .video-container { width: 100%; max-width: 950px; margin: 2rem auto 4rem auto; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); border: 1px solid #f1f5f9; }
 
         .author-link { color: #007bff; text-decoration: none; font-weight: 500; white-space: nowrap; }
         pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; }
-        .btn-custom { background-color: #24292f; color: white; border-radius: 25px; padding: 10px 24px; transition: 0.3s; font-weight: 500; display: inline-flex; align-items: center; }
-        .btn-custom:hover { background-color: #000; transform: translateY(-2px); }
+        .btn-custom { background-color: #24292f; color: white; border-radius: 25px; padding: 12px 28px; transition: 0.3s; font-weight: 600; display: inline-flex; align-items: center; }
+        .btn-custom:hover { background-color: #000; transform: translateY(-2px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="max-w-6xl mx-auto px-6 py-16 text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 text-gray-900 leading-tight flex items-center justify-center flex-wrap">
-            <img src="image/0.png" alt="Logo" class="project-logo">
-            <span>AriadneMem: Threading the Maze of <br><span class="text-blue-600">Lifelong Memory</span> for LLM Agents</span>
+    <header class="max-w-6xl mx-auto px-6 pt-20 pb-10 text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
+            AriadneMem: Threading the Maze of <br><span class="text-blue-600">Lifelong Memory</span> for LLM Agents
         </h1>
         
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg mb-8 max-w-5xl mx-auto author-link">
+        <img src="image/0.png" alt="AriadneMem Logo" class="project-logo-large">
+
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg mb-6 max-w-5xl mx-auto author-link">
             <span>Wenhui Zhu<sup>1*</sup></span><span>Xiwen Chen<sup>2*</sup></span><span>Zhipeng Wang<sup>3*</sup></span>
             <span>Jingjing Wang<sup>4</sup></span><span>Yalin Wang<sup>1</sup></span>
         </div>
@@ -45,7 +46,7 @@
             <p class="mt-2 text-xs italic">* Equal Contribution</p>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
             <a href="#" class="btn-custom"><i class="fas fa-file-pdf mr-2"></i>Paper</a>
             <a href="https://github.com/LLM-VLM-GSL/AriadneMem.github.io" class="btn-custom"><i class="fab fa-github mr-2"></i>Code</a>
         </div>
@@ -55,7 +56,9 @@
                 <source src="image/123.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <p class="py-3 bg-gray-50 text-gray-500 text-sm italic">Video Demo: Lifelong Memory Retrieval Process</p>
+            <div class="bg-gray-50 py-3 text-gray-500 text-sm font-medium border-t italic">
+                Demo: Real-time Lifelong Memory Retrieval & Reasoning
+            </div>
         </div>
     </header>
 
@@ -63,11 +66,11 @@
         
         <section class="mb-16">
             <div class="content-card">
-                <img src="image/1.png" class="img-full-width" alt="Teaser">
+                <img src="image/1.png" class="img-full-width" alt="Teaser Results">
             </div>
         </section>
 
-        <section class="mb-20 bg-slate-50 p-8 md:p-12 rounded-3xl border border-slate-100">
+        <section class="mb-20 bg-blue-50/50 p-8 md:p-12 rounded-3xl border border-blue-100 shadow-sm">
             <h2 class="section-title">Abstract</h2>
             <p class="text-xl leading-relaxed text-gray-800 text-justify">
                 Long-horizon LLM agents require memory systems that remain accurate under fixed context budgets. We propose <b>AriadneMem</b>, a structured memory system that addresses disconnected evidence and state updates via a decoupled two-phase pipeline.
@@ -77,14 +80,14 @@
         <section class="mb-20">
             <h2 class="section-title">Methodology</h2>
             <div class="content-card">
-                <img src="image/2.png" class="img-full-width" alt="Architecture">
+                <img src="image/2.png" class="img-full-width" alt="Framework Diagram">
             </div>
         </section>
 
         <section class="mb-20">
             <h2 class="section-title">Case Study</h2>
             <div class="content-card">
-                <img src="image/3.png" class="img-full-width" alt="Case Study">
+                <img src="image/3.png" class="img-full-width" alt="Qualitative Analysis">
             </div>
         </section>
 
@@ -92,20 +95,20 @@
             <h2 class="section-title">Experimental Results</h2>
             
             <div class="content-card">
-                <img src="image/4.png" class="img-full-width" alt="Performance Comparison">
-                <p class="text-center mt-4 text-xs font-bold text-gray-400 tracking-widest uppercase">Performance Comparison</p>
+                <img src="image/4.png" class="img-full-width" alt="Performance Comparison Metrics">
+                <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Main Quantitative Performance</p>
             </div>
 
             <div class="content-card">
-                <img src="image/5.png" class="img-full-width" alt="Efficiency Analysis">
-                <p class="text-center mt-4 text-xs font-bold text-gray-400 tracking-widest uppercase">Efficiency Analysis</p>
+                <img src="image/5.png" class="img-full-width" alt="Efficiency and Token Usage">
+                <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Efficiency & Token Usage Analysis</p>
             </div>
         </section>
 
         <section class="mb-20">
             <h2 class="section-title">Ablation Study</h2>
             <div class="content-card">
-                <img src="image/6.png" class="img-full-width" alt="Ablation">
+                <img src="image/6.png" class="img-full-width" alt="Ablation Analysis">
             </div>
         </section>
 
@@ -118,12 +121,12 @@
   author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and others},
   year={2026}
 }</pre>
-                <button onclick="copyBib()" class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded text-xs hover:bg-gray-600 transition">Copy</button>
+                <button onclick="copyBib()" class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded text-xs hover:bg-gray-600 transition shadow-sm">Copy</button>
             </div>
         </section>
     </main>
 
-    <footer class="py-12 text-center text-gray-400 text-sm">
+    <footer class="pb-16 text-center text-gray-400 text-sm">
         <p>© 2026 AriadneMem Project Team</p>
     </footer>
 
