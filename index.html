@@ -14,14 +14,17 @@
         .img-full-width { width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; transition: transform 0.2s ease; }
         .img-full-width:hover { transform: scale(1.01); }
 
-        /* 再次大幅度放大 Logo 尺寸 */
+        /* 优化后的超大 Logo 样式：完整显示不裁剪 */
         .project-logo-extra-large { 
-            width: 350px; /* 从 180px 增加到 350px */
+            width: 90%; 
+            max-width: 500px; /* 设置为 500px 更加醒目 */
             height: auto; 
-            margin: 30px auto; 
+            object-fit: contain; /* 确保原图完整比例，不裁剪 */
+            margin: 40px auto; 
             display: block; 
             border-radius: 25px; 
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12); 
+            /* 如果原图自带阴影可去掉下面这行 */
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08); 
         }
         
         .video-container { width: 100%; max-width: 1000px; margin: 2rem auto 4rem auto; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); border: 1px solid #f1f5f9; }
@@ -59,7 +62,6 @@
         <div class="video-container">
             <video class="w-full" controls autoplay muted loop playsinline>
                 <source src="image/123.mp4" type="video/mp4">
-                Your browser does not support the video tag.
             </video>
             <div class="bg-gray-50 py-3 text-gray-500 text-sm font-medium border-t italic">
                 Demo: Real-time Lifelong Memory Retrieval & Reasoning
@@ -68,7 +70,6 @@
     </header>
 
     <main class="max-w-5xl mx-auto px-6">
-        
         <section class="mb-16">
             <div class="content-card">
                 <img src="image/1.png" class="img-full-width" alt="Teaser Results">
@@ -83,62 +84,28 @@
         </section>
 
         <section class="mb-20">
-            <h2 class="section-title">Methodology</h2>
-            <div class="content-card">
-                <img src="image/2.png" class="img-full-width" alt="Framework Diagram">
-            </div>
-        </section>
-
-        <section class="mb-20">
-            <h2 class="section-title">Case Study</h2>
-            <div class="content-card">
-                <img src="image/3.png" class="img-full-width" alt="Qualitative Analysis">
-            </div>
-        </section>
-
-        <section class="mb-20">
             <h2 class="section-title">Experimental Results</h2>
             <div class="content-card">
-                <img src="image/4.png" class="img-full-width" alt="Performance Comparison Metrics">
-                <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Main Quantitative Performance</p>
+                <img src="image/4.png" class="img-full-width" alt="Performance Comparison">
             </div>
             <div class="content-card">
-                <img src="image/5.png" class="img-full-width" alt="Efficiency and Token Usage">
-                <p class="text-center mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">Efficiency & Token Usage Analysis</p>
-            </div>
-        </section>
-
-        <section class="mb-20">
-            <h2 class="section-title">Ablation Study</h2>
-            <div class="content-card">
-                <img src="image/6.png" class="img-full-width" alt="Ablation Analysis">
+                <img src="image/5.png" class="img-full-width" alt="Efficiency Analysis">
             </div>
         </section>
 
         <section class="mb-24">
             <h2 class="section-title">BibTeX</h2>
-            <div class="relative group">
-                <pre id="bibtex-code">
+            <pre id="bibtex-code">
 @article{zhu2026ariadnemem,
   title={AriadneMem: Threading the Maze of Lifelong Memory for LLM Agents},
   author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and others},
   year={2026}
 }</pre>
-                <button onclick="copyBib()" class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded text-xs hover:bg-gray-600 transition shadow-sm">Copy</button>
-            </div>
         </section>
     </main>
 
     <footer class="pb-16 text-center text-gray-400 text-sm">
         <p>© 2026 AriadneMem Project Team</p>
     </footer>
-
-    <script>
-        function copyBib() {
-            const text = document.getElementById('bibtex-code').innerText;
-            navigator.clipboard.writeText(text);
-            alert('BibTeX copied to clipboard!');
-        }
-    </script>
 </body>
 </html>
