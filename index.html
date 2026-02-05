@@ -14,45 +14,64 @@
         .img-full-width { width: 100%; height: auto; border-radius: 12px; display: block; margin: 0 auto; transition: transform 0.2s ease; }
         .img-full-width:hover { transform: scale(1.01); }
 
-        /* 优化后的超大 Logo 样式：完整显示不裁剪 */
+        /* 超大 Logo 样式：原图比例，不裁剪 */
         .project-logo-extra-large { 
             width: 90%; 
-            max-width: 500px; /* 设置为 500px 更加醒目 */
+            max-width: 550px; 
             height: auto; 
-            object-fit: contain; /* 确保原图完整比例，不裁剪 */
+            object-fit: contain; 
             margin: 40px auto; 
             display: block; 
-            border-radius: 25px; 
-            /* 如果原图自带阴影可去掉下面这行 */
-            box-shadow: 0 12px 30px rgba(0,0,0,0.08); 
         }
         
         .video-container { width: 100%; max-width: 1000px; margin: 2rem auto 4rem auto; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); border: 1px solid #f1f5f9; }
 
-        .author-link { color: #007bff; text-decoration: none; font-weight: 500; white-space: nowrap; }
+        .author-box { font-weight: 600; color: #1a202c; }
+        .author-box span { white-space: nowrap; }
+        .affiliation-box { color: #718096; font-size: 0.95rem; line-height: 1.6; }
+        .email-box { font-family: monospace; color: #4a5568; margin-top: 10px; font-size: 0.9rem; }
+        
         pre { background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 12px; overflow-x: auto; font-size: 0.9rem; }
         .btn-custom { background-color: #24292f; color: white; border-radius: 25px; padding: 12px 28px; transition: 0.3s; font-weight: 600; display: inline-flex; align-items: center; }
-        .btn-custom:hover { background-color: #000; transform: translateY(-2px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .btn-custom:hover { background-color: #000; transform: translateY(-2px); }
     </style>
 </head>
 <body class="antialiased">
 
     <header class="max-w-6xl mx-auto px-6 pt-20 pb-10 text-center">
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 text-gray-900 leading-tight">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-8 text-gray-900 leading-tight">
             AriadneMem: Threading the Maze of <br><span class="text-blue-600">Lifelong Memory</span> for LLM Agents
         </h1>
         
         <img src="image/0.png" alt="AriadneMem Logo" class="project-logo-extra-large">
 
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg mb-6 max-w-5xl mx-auto author-link">
-            <span>Wenhui Zhu<sup>1*</sup></span><span>Xiwen Chen<sup>2*</sup></span><span>Zhipeng Wang<sup>3*</sup></span>
-            <span>Jingjing Wang<sup>4</sup></span><span>Yalin Wang<sup>1</sup></span>
+        <div class="author-box flex flex-wrap justify-center gap-x-5 gap-y-2 text-lg mb-6 max-w-5xl mx-auto">
+            <span>Wenhui Zhu<sup>1*</sup></span>
+            <span>Xiwen Chen<sup>2*</sup></span>
+            <span>Zhipeng Wang<sup>3*</sup></span>
+            <span>Jingjing Wang<sup>4</sup></span>
+            <span>Xuanzhao Dong<sup>1</sup></span>
+            <span>Minzhou Huang<sup>5</sup></span>
+            <span>Rui Cai<sup>6</sup></span>
+            <span>Hejian Sang<sup>7</sup></span>
+            <span>Hao Wang<sup>4</sup></span>
+            <span>Peijie Qiu<sup>8</sup></span>
+            <span>Yueyue Deng<sup>9</sup></span>
+            <span>Prayag Tiwari<sup>10</sup></span>
+            <span>Brendan Hogan Rappazzo<sup>2</sup></span>
+            <span>Yalin Wang<sup>1</sup></span>
         </div>
 
-        <div class="text-gray-500 mb-10 text-sm md:text-base">
-            <sup>1</sup>Arizona State University, <sup>2</sup>Morgan Stanley, <sup>3</sup>Rice University, <sup>4</sup>Clemson University <br>
-            <p class="mt-2 text-xs italic">* Equal Contribution</p>
+        <div class="affiliation-box max-w-5xl mx-auto mb-4">
+            <sup>1</sup>Arizona State University, <sup>2</sup>Morgan Stanley, <sup>3</sup>Rice University, <sup>4</sup>Clemson University, <sup>5</sup>Northwestern University, <br class="hidden md:block">
+            <sup>6</sup>UC Davis, <sup>7</sup>Iowa State University, <sup>8</sup>Washington University in St. Louis, <sup>9</sup>Columbia University, <sup>10</sup>Halmstad University
         </div>
+
+        <div class="email-box">
+            wzhu59@asu.edu, xiwen.chen@morganstanley.com
+        </div>
+
+        <div class="mt-4 mb-10 text-xs italic text-gray-400">* Equal Contribution</div>
 
         <div class="flex flex-wrap justify-center gap-4 mb-16">
             <a href="#" class="btn-custom"><i class="fas fa-file-pdf mr-2"></i>Paper</a>
@@ -63,13 +82,14 @@
             <video class="w-full" controls autoplay muted loop playsinline>
                 <source src="image/123.mp4" type="video/mp4">
             </video>
-            <div class="bg-gray-50 py-3 text-gray-500 text-sm font-medium border-t italic">
+            <div class="bg-gray-50 py-3 text-gray-500 text-sm font-medium border-t italic text-center">
                 Demo: Real-time Lifelong Memory Retrieval & Reasoning
             </div>
         </div>
     </header>
 
     <main class="max-w-5xl mx-auto px-6">
+        
         <section class="mb-16">
             <div class="content-card">
                 <img src="image/1.png" class="img-full-width" alt="Teaser Results">
@@ -84,6 +104,20 @@
         </section>
 
         <section class="mb-20">
+            <h2 class="section-title">Methodology</h2>
+            <div class="content-card">
+                <img src="image/2.png" class="img-full-width" alt="Framework">
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <h2 class="section-title">Case Study</h2>
+            <div class="content-card">
+                <img src="image/3.png" class="img-full-width" alt="Qualitative Analysis">
+            </div>
+        </section>
+
+        <section class="mb-20">
             <h2 class="section-title">Experimental Results</h2>
             <div class="content-card">
                 <img src="image/4.png" class="img-full-width" alt="Performance Comparison">
@@ -93,19 +127,37 @@
             </div>
         </section>
 
+        <section class="mb-20">
+            <h2 class="section-title">Ablation Study</h2>
+            <div class="content-card">
+                <img src="image/6.png" class="img-full-width" alt="Ablation Analysis">
+            </div>
+        </section>
+
         <section class="mb-24">
             <h2 class="section-title">BibTeX</h2>
-            <pre id="bibtex-code">
+            <div class="relative group">
+                <pre id="bibtex-code">
 @article{zhu2026ariadnemem,
   title={AriadneMem: Threading the Maze of Lifelong Memory for LLM Agents},
-  author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and others},
+  author={Zhu, Wenhui and Chen, Xiwen and Wang, Zhipeng and Wang, Jingjing and Dong, Xuanzhao and others},
   year={2026}
 }</pre>
+                <button onclick="copyBib()" class="absolute top-4 right-4 bg-gray-700 text-white px-3 py-1 rounded text-xs hover:bg-gray-600 transition">Copy</button>
+            </div>
         </section>
     </main>
 
     <footer class="pb-16 text-center text-gray-400 text-sm">
         <p>© 2026 AriadneMem Project Team</p>
     </footer>
+
+    <script>
+        function copyBib() {
+            const text = document.getElementById('bibtex-code').innerText;
+            navigator.clipboard.writeText(text);
+            alert('BibTeX copied to clipboard!');
+        }
+    </script>
 </body>
 </html>
